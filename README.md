@@ -1,6 +1,6 @@
 # Predicción y Priorización de Vulnerabilidades de Ciberseguridad (NIST NVD) — ACIF104
 
-Repositorio oficial de la ** Evaluación Sumativa 1 (Informe Fase 2)** para la asignatura **Aprendizaje de Máquinas (ACIF104)** de la Universidad Andrés Bello.
+Repositorio oficial de la **Evaluación Sumativa 1 (Informe Fase 2)** para la asignatura **Aprendizaje de Máquinas (ACIF104)** de la Universidad Andrés Bello.
 
 ## Descripción del Proyecto y Dataset
 Este proyecto implementa un flujo completo de Ciencia de Datos y Aprendizaje Automático sobre registros reales extraídos de la *National Vulnerability Database (NVD) del presente año* del NIST (`nist_cve_raw.csv`, conformado por **85.687 filas y 14 columnas**, con un peso de **51,6 MB**). 
@@ -11,7 +11,7 @@ El conjunto de datos incluye valores faltantes reales en el rango requerido por 
 * `data/nist_cve_raw.csv`: Conjunto de datos crudo validado mediante el script de la asignatura (`informe_dataset.md`).
 * `scripts/aplanar_nist.py`: Script de extracción directa desde el feed oficial JSON 2.0 del NIST hacia estructura tabular CSV sin alterar valores nulos.
 * `scripts/pipeline_modelos.py`: Preprocesamiento por rol analítico, partición estratificada (70/15/15), 3 técnicas de balanceo de clases (Class Weights, SMOTE, Random Under-Sampling), comparación de 3 algoritmos de Machine Learning y 3 arquitecturas de Deep Learning, más explicabilidad mediante **SHAP**.
-* `app/backend_api.py` y `app/frontend_ui.py`: Arquitectura desacoplada Backend (FastAPI) y Frontend (Streamlit) con monitoreo de latencia y explicabilidad de inferencias.
+* `scripts/app/backend_api.py` y `scripts/app/frontend_ui.py`: Arquitectura desacoplada Backend (FastAPI) y Frontend (Streamlit) con monitoreo de latencia y explicabilidad de inferencias.
 
 ## Instrucciones de Instalación y Ejecución
 
@@ -22,3 +22,20 @@ cd acif104-nist-cve
 python -m venv venv
 .\venv\Scripts\activate
 pip install -r requirements.txt
+```
+
+### 2. Ejecutar el pipeline de entrenamiento y validación
+```bash
+python scripts/pipeline_modelos.py
+```
+
+### 3. Iniciar el Backend (API REST y Monitoreo)
+```bash
+uvicorn scripts.app.backend_api:app --reload --port 8000
+```
+
+### 4. Iniciar el Frontend Interactivo (En otra terminal)
+```bash
+streamlit run scripts/app/frontend_ui.py
+```
+
