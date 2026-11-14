@@ -1,0 +1,12 @@
+# Ignorar archivos originales pesados del NIST
+*.json
+*.json.gz
+
+# Entornos virtuales y caché de Python
+venv/
+.venv/
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+models/*.pkl
+models/*.keras
