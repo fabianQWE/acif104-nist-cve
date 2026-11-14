@@ -17,7 +17,7 @@ El conjunto de datos incluye valores faltantes reales en el rango requerido por 
 
 ### 1. Clonar el repositorio y crear entorno virtual
 ```bash
-git clone [https://github.com/TU_USUARIO/acif104-nist-cve.git](https://github.com/TU_USUARIO/acif104-nist-cve.git)
+git clone https://github.com/fabianQWE/acif104-nist-cve.git
 cd acif104-nist-cve
 python -m venv venv
 .\venv\Scripts\activate
