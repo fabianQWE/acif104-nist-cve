@@ -34,8 +34,17 @@ python scripts/pipeline_modelos.py
 uvicorn scripts.app.backend_api:app --reload --port 8000
 ```
 
+* `Documentación interactiva (Swagger UI):`
+http://127.0.0.1:8000/docs
+
+* `Endpoint de telemetría y monitoreo:`
+  http://127.0.0.1:8000/monitor
+
 ### 4. Iniciar el Frontend Interactivo (En otra terminal)
 ```bash
-streamlit run scripts/app/frontend_ui.py
+cd acif104-nist-cve
+.\venv\Scripts\activate
+python -m streamlit run scripts/app/frontend_ui.py
 ```
 
+* `Interfaz Web SOC: http://localhost:8501`
